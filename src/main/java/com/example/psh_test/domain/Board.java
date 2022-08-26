@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+@Data
 
 public class Board {
     private Long boardId;

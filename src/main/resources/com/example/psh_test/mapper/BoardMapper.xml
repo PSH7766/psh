@@ -3,7 +3,7 @@
 
 <mapper namespace="com.example.psh_test.mapper.BoardMapper">
 
-    <select id="boardCount" resultType="int">
+    <select id="boardCount" resultType="int" >
         SELECT count(boardId) AS cnt FROM tbl_board
     </select>
 
@@ -13,4 +13,29 @@
         From tbl_board;
     </select>
 
+    <select id="getBoard" parameterType="Long" resultType="com.example.psh_test.domain.Board">
+        SELECT
+        *
+        FROM tbl_board where boardId=#{boardId};
+    </select>
+
+    <insert id="uploadBoard" parameterType="com.example.psh_test.domain.Board">
+        INSERT INTO tbl_board(title,content,name)
+        VALUES
+            (#{title}, #{content}, #{name});
+
+    </insert>
+
+    <update id="updateBoard" parameterType="com.example.psh_test.domain.Board">
+        UPDATE tbl_board
+        SET title =#{title}, content=#{content}
+        WHERE boardId=#{boardId};
+    </update>
+
+    <delete id="deleteBoard" parameterType="long">
+        DELETE
+        FROM tbl_board
+        WHERE boardId=#{boardId};
+
+    </delete>
 </mapper>
