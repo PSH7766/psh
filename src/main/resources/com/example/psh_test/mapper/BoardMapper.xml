@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.psh_test.mapper.BoardMapper">
+
+    <select id="boardCount" resultType="int">
+        SELECT count(boardId) AS cnt FROM tbl_board
+    </select>
+
+    <select id="getList" resultType="com.example.psh_test.domain.Board">
+        SELECT
+        *
+        From tbl_board;
+    </select>
+
+</mapper>
